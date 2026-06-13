@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 4th Monthsary!!!</title>
+    <style>
+        /* Base Styles & Cute Pastel Palette */
+        :root {
+            --bg-color: #fff0f3;
+            --card-bg: #ffffff;
+            --text-color: #5c4a4a;
+            --usagi-yellow: #fef0be;
+            --border-color: #eecad0;
+            
+            /* Siamese Cat Colors */
+            --cat-cream: #f4eae1;
+            --cat-point: #6e5850;
+            --cat-eye: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Falling Hearts Background */
+        .heart-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .falling-heart {
+            position: absolute;
+            top: -20px;
+            font-size: 20px;
+            color: #ff8fa3;
+            opacity: 0.6;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) scale(0.5) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% {
+                transform: translateY(105vh) scale(1.2) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* --- Realistic & Subtle Dancing Pink Panthers --- */
+        .panther-bg {
+            position: absolute;
+            bottom: -30px;
+            width: 180px;
+            height: 420px;
+            opacity: 0.1; /* Very subtle transparency to prevent distraction */
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .panther-left {
+            left: 5%;
+        }
+
+        .panther-right {
+            right: 5%;
+            transform: scaleX(-1); /* Flips the second panther to face the center */
+        }
+
+        /* Natural rhythmic body motion */
+        @keyframes dynamicDanceLeft {
+            0%, 100% { transform: translateY(0) rotate(0deg) skewX(0deg); }
+            25% { transform: translateY(-12px) rotate(4deg) skewX(2deg); }
+            50% { transform: translateY(2px) rotate(-2deg) skewX(-1deg); }
+            75% { transform: translateY(-8px) rotate(-4deg) skewX(-2deg); }
+        }
+
+        @keyframes dynamicDanceRight {
+            0%, 100% { transform: scaleX(-1) translateY(0) rotate(0deg) skewX(0deg); }
+            25% { transform: scaleX(-1) translateY(-10px) rotate(-4deg) skewX(-2deg); }
+            50% { transform: scaleX(-1) translateY(3px) rotate(2deg) skewX(1deg); }
+            75% { transform: scaleX(-1) translateY(-14px) rotate(5deg) skewX(3deg); }
+        }
+
+        .panther-left .panther-wrapper { animation: dynamicDanceLeft 3.5s ease-in-out infinite; }
+        .panther-right .panther-wrapper { animation: dynamicDanceRight 3.8s ease-in-out infinite; opacity: 0.95; }
+
+        .panther-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-origin: bottom center;
+        }
+
+        /* Pure CSS Realistic Organic Shapes for Panther */
+        .p-head {
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            width: 55px;
+            height: 52px;
+            background: #ff8fa3;
+            border-radius: 40% 40% 50% 50%;
+        }
+
+        /* Elongated realistic snout */
+        .p-snout {
+            position: absolute;
+            top: 22px;
+            left: -20px;
+            width: 50px;
+            height: 24px;
+            background: #ff8fa3;
+            border-radius: 20px 10px 15px 20px;
+        }
+
+        .p-nose {
+            position: absolute;
+            top: 22px;
+            left: -24px;
+            width: 10px;
+            height: 7px;
+            background: #5c4a4a;
+            border-radius: 50% 30% 30% 50%;
+        }
+
+        /* Sleek stylized panther ears */
+        .p-ear {
+            position: absolute;
+            width: 16px;
+            height: 22px;
+            background: #ff8fa3;
+            border-radius: 50% 50% 30% 30%;
+        }
+        .p-ear.l { top: -10px; left: 14px; transform: rotate(-15deg); }
+        .p-ear.r { top: -8px; left: 34px; transform: rotate(15deg); }
+
+        /* Long elegant neck */
+        .p-neck {
+            position: absolute;
+            top: 85px;
+            left: 68px;
+            width: 18px;
+            height: 55px;
+            background: #ff8fa3;
+            transform: rotate(-12deg);
+            border-radius: 10px;
+        }
+
+        /* Lean torso */
+        .p-body {
+            position: absolute;
+            top: 130px;
+            left: 55px;
+            width: 46px;
+            height: 150px;
+            background: #ff8fa3;
+            border-radius: 24px 20px 24px 28px;
+            transform: rotate(-5deg);
+        }
+
+        /* Fluid, swaying dance arms */
+        @keyframes armWaveL {
+            0%, 100% { transform: rotate(20deg); }
+            50% { transform: rotate(45deg); }
+        }
+        @keyframes armWaveR {
+            0%, 100% { transform: rotate(-40deg); }
+            50% { transform: rotate(-15deg); }
+        }
+
+        .p-arm {
+            position: absolute;
+            width: 14px;
+            height: 90px;
+            background: #ff8fa3;
+            border-radius: 10px;
+            transform-origin: top center;
+        }
+        .p-arm.l {
+            top: 140px;
+            left: 45px;
+            animation: armWaveL 2.8s ease-in-out infinite;
+        }
+        .p-arm.r {
+            top: 135px;
+            left: 90px;
+            animation: armWaveR 3.2s ease-in-out infinite;
+        }
+
+        /* Long graceful legs and tail */
+        .p-leg {
+            position: absolute;
+            width: 16px;
+            height: 160px;
+            background: #ff8fa3;
+            border-radius: 10px;
+        }
+        .p-leg.l { top: 265px; left: 56px; transform: rotate(4deg); }
+        .p-leg.r { top: 265px; left: 78px; transform: rotate(-6deg); }
+
+        .p-tail {
+            position: absolute;
+            top: 240px;
+            left: 90px;
+            width: 90px;
+            height: 100px;
+            border: 12px solid #ff8fa3;
+            border-top: none;
+            border-left: none;
+            border-radius: 0 0 70px 40px;
+            transform: rotate(15deg);
+            transform-origin: top left;
+        }
+
+        /* Greeting Card Wrapper */
+        .card-wrapper {
+            position: relative;
+            max-width: 420px;
+            width: 90%;
+            z-index: 10;
+            margin-top: 50px;
+        }
+
+        /* Character Header Panel */
+        .characters-head {
+            position: absolute;
+            top: -65px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            padding: 0 20px;
+            z-index: -1;
+        }
+
+        .character {
+            width: 90px;
+            height: 75px;
+            background: #fff;
+            border: 3px solid #5c4a4a;
+            border-bottom: none;
+            position: relative;
+        }
+
+        /* Chiikawa */
+        .chiikawa { border-radius: 50% 50% 0 0; }
+        .chiikawa::before, .chiikawa::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            width: 22px;
+            height: 25px;
+            background: #fff;
+            border: 3px solid #5c4a4a;
+            border-bottom: none;
+        }
+        .chiikawa::before { left: 8px; border-radius: 40% 70% 0 0; transform: rotate(-15deg); }
+        .chiikawa::after { right: 8px; border-radius: 70% 40% 0 0; transform: rotate(15deg); }
+
+        /* Usagi */
+        .usagi { background: var(--usagi-yellow); border-radius: 50% 50% 0 0; }
+        .usagi::before, .usagi::after {
+            content: '';
+            position: absolute;
+            top: -42px;
+            width: 18px;
+            height: 48px;
+            background: var(--usagi-yellow);
+            border: 3px solid #5c4a4a;
+            border-bottom: none;
+            border-radius: 20px 20px 0 0;
+        }
+        .usagi::before { left: 16px; transform: rotate(-8deg); }
+        .usagi::after { right: 16px; transform: rotate(8deg); }
+
+        /* Shared Face Elements */
+        .inner-face { position: relative; width: 100%; height: 100%; }
+        .ch-eyes { position: absolute; top: 35px; width: 100%; display: flex; justify-content: space-between; padding: 0 18px; }
+        .ch-eye { width: 8px; height: 11px; background: #5c4a4a; border-radius: 50%; }
+        .ch-cheeks { position: absolute; top: 44px; width: 100%; display: flex; justify-content: space-between; padding: 0 10px; }
+        .ch-cheek { width: 14px; height: 8px; background: #ffccd5; border-radius: 50%; }
+        .usagi .ch-cheek { background: #ffb3c1; }
+        .ch-mouth { position: absolute; top: 44px; left: 50%; transform: translateX(-50%); width: 10px; height: 6px; border: 2px solid #5c4a4a; border-top: none; border-radius: 0 0 8px 8px; }
+        .usagi .ch-mouth { width: 10px; height: 10px; background: #ff8fa3; border-radius: 50%; border: 2px solid #5c4a4a; }
+
+        /* Main Card */
+        .card {
+            background: var(--card-bg);
+            border: 4px solid var(--border-color);
+            border-radius: 24px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(238, 202, 208, 0.6);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        h1 { font-size: 1.8rem; color: #d1697a; margin-bottom: 20px; font-weight: 700; }
+
+        /* Interactive Surprise Box */
+        .box-section { margin: 20px 0; display: flex; flex-direction: column; align-items: center; }
+        .gift-box { width: 100px; height: 100px; position: relative; cursor: pointer; transition: transform 0.3s ease; }
+        .gift-box:hover { transform: scale(1.05); }
+        .gift-lid { width: 110px; height: 25px; background: #ffcad4; border: 3px solid #5c4a4a; border-radius: 6px; position: absolute; top: 0; left: -5px; z-index: 3; transition: transform 0.5s ease; }
+        .gift-body { width: 100px; height: 75px; background: #ffe5ec; border: 3px solid #5c4a4a; border-radius: 0 0 8px 8px; position: absolute; bottom: 0; z-index: 2; }
+        .gift-bow { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); width: 30px; height: 25px; background: #ff4d6d; border: 3px solid #5c4a4a; border-radius: 50% 50% 50% 50% / 30% 30% 70% 70%; z-index: 4; transition: transform 0.5s ease; }
+        .gift-body::before, .gift-lid::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 16px; height: 100%; background: #ff4d6d; }
+        
+        .gift-box.open .gift-lid { transform: translate(40px, -55px) rotate(45deg); }
+        .gift-box.open .gift-bow { transform: translate(45px, -55px) rotate(45deg); }
+
+        /* Hidden Message Display */
+        .message-pane { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.6s ease-out, opacity 0.6s ease; margin-top: 15px; padding: 0 10px; }
+        .message-pane.show { max-height: 200px; opacity: 1; }
+        .message-text { background: #fff8f9; border: 2px dashed #ffb3c1; border-radius: 14px; padding: 15px; font-size: 1.05rem; line-height: 1.6; color: #6b5252; }
+        .hint-text { font-size: 0.85rem; color: #a38f92; margin-top: 8px; }
+
+        /* --- Corner Siamese Cats --- */
+        .cat-corner {
+            position: absolute;
+            bottom: -10px;
+            width: 125px; 
+            height: 135px; 
+            z-index: 5;
+        }
+        
+        .cat-left { left: 15px; }
+        .cat-right { right: 15px; transform: scaleX(-1); }
+
+        .cat-head {
+            width: 100px; 
+            height: 80px; 
+            background: var(--cat-cream);
+            border: 3px solid #5c4a4a;
+            border-radius: 50% 50% 45% 45%;
+            position: absolute;
+            bottom: 40px;
+            left: 12px;
+        }
+
+        /* Siamese Point Mask */
+        .cat-mask {
+            position: absolute;
+            top: 18px;
+            left: 17px;
+            width: 60px; 
+            height: 50px; 
+            background: var(--cat-point);
+            border-radius: 50% 50% 40% 40%;
+        }
+
+        .cat-eyes {
+            position: absolute;
+            top: 26px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 24px;
+        }
+        
+        .cat-eye {
+            width: 16px;
+            height: 16px;
+            background: var(--cat-eye);
+            border: 2px solid #5c4a4a;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Big Pupil */
+        .cat-eye::after {
+            content: '';
+            width: 9px;
+            height: 9px;
+            background: #000000;
+            border-radius: 50%;
+        }
+
+        /* Whiskers Layout */
+        .whiskers {
+            position: absolute;
+            top: 45px;
+            width: 100%;
+            height: 20px;
+            pointer-events: none;
+        }
+
+        .whisker-left, .whisker-right {
+            position: absolute;
+            width: 22px;
+            height: 2px;
+            background: #5c4a4a;
+            border-radius: 2px;
+        }
+
+        /* Left Side Whiskers */
+        .whiskers-l .whisker-left:nth-child(1) { left: -14px; top: 0px; transform: rotate(10deg); }
+        .whiskers-l .whisker-left:nth-child(2) { left: -16px; top: 6px; transform: rotate(0deg); }
+        .whiskers-l .whisker-left:nth-child(3) { left: -14px; top: 12px; transform: rotate(-10deg); }
+
+        /* Right Side Whiskers */
+        .whiskers-r .whisker-right:nth-child(1) { right: -14px; top: 0px; transform: rotate(-10deg); }
+        .whiskers-r .whisker-right:nth-child(2) { right: -16px; top: 6px; transform: rotate(0deg); }
+        .whiskers-r .whisker-right:nth-child(3) { right: -14px; top: 12px; transform: rotate(10deg); }
+
+        /* Cat Ears */
+        .cat-ear {
+            width: 32px; 
+            height: 38px;
+            background: var(--cat-point);
+            border: 3px solid #5c4a4a;
+            position: absolute;
+            top: -10px;
+        }
+        .cat-ear.l { left: 5px; border-radius: 80% 10% 30% 10%; transform: rotate(-20deg); }
+        .cat-ear.r { right: 13px; border-radius: 10% 80% 10% 30%; transform: rotate(20deg); }
+
+        /* Paws resting on the bottom of the screen */
+        .cat-paws {
+            position: absolute;
+            bottom: 18px;
+            left: 28px;
+            width: 70px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .cat-paw {
+            width: 24px;
+            height: 30px;
+            background: var(--cat-point);
+            border: 3px solid #5c4a4a;
+            border-radius: 12px 12px 5px 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heart-container" id="heartContainer"></div>
+
+    <!-- Dancing Panther Left Background -->
+    <div class="panther-bg panther-left">
+        <div class="panther-wrapper">
+            <div class="p-ear l"></div><div class="p-ear r"></div>
+            <div class="p-head"><div class="p-snout"></div><div class="p-nose"></div></div>
+            <div class="p-neck"></div>
+            <div class="p-body"></div>
+            <div class="p-arm l"></div><div class="p-arm r"></div>
+            <div class="p-leg l"></div><div class="p-leg r"></div>
+            <div class="p-tail"></div>
+        </div>
+    </div>
+
+    <!-- Dancing Panther Right Background -->
+    <div class="panther-bg panther-right">
+        <div class="panther-wrapper">
+            <div class="p-ear l"></div><div class="p-ear r"></div>
+            <div class="p-head"><div class="p-snout"></div><div class="p-nose"></div></div>
+            <div class="p-neck"></div>
+            <div class="p-body"></div>
+            <div class="p-arm l"></div><div class="p-arm r"></div>
+            <div class="p-leg l"></div><div class="p-leg r"></div>
+            <div class="p-tail"></div>
+        </div>
+    </div>
+
+    <div class="card-wrapper">
+        <div class="characters-head">
+            <div class="character chiikawa">
+                <div class="inner-face">
+                    <div class="ch-eyes"><div class="ch-eye"></div><div class="ch-eye"></div></div>
+                    <div class="ch-cheeks"><div class="ch-cheek"></div><div class="ch-cheek"></div></div>
+                    <div class="ch-mouth"></div>
+                </div>
+            </div>
+            <div class="character usagi">
+                <div class="inner-face">
+                    <div class="ch-eyes"><div class="ch-eye"></div><div class="ch-eye"></div></div>
+                    <div class="ch-cheeks"><div class="ch-cheek"></div><div class="ch-cheek"></div></div>
+                    <div class="ch-mouth"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h1>Happy 4th Monthsary to us!</h1>
+            
+            <div class="box-section">
+                <div class="gift-box" id="giftBox" onclick="toggleBox()">
+                    <div class="gift-bow"></div>
+                    <div class="gift-lid"></div>
+                    <div class="gift-body"></div>
+                </div>
+                <p class="hint-text" id="hintLabel">Tap the box:3 ✨</p>
+            </div>
+
+            <div class="message-pane" id="messagePane">
+                <div class="message-text">
+                    Happy 4th monthsary, baby! Looking back at our time together, I'm just so grateful for the way you support me, understand me, and bring so much peace into my life. Thank you for being my safe space. I love you so much! C:
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Left Cat -->
+    <div class="cat-corner cat-left">
+        <div class="cat-ear l"></div>
+        <div class="cat-ear r"></div>
+        <div class="cat-head">
+            <div class="cat-mask"></div>
+            <div class="cat-eyes">
+                <div class="cat-eye"></div>
+                <div class="cat-eye"></div>
+            </div>
+            <!-- Whiskers Left Cat -->
+            <div class="whiskers whiskers-l"><div class="whisker-left"></div><div class="whisker-left"></div><div class="whisker-left"></div></div>
+            <div class="whiskers whiskers-r"><div class="whisker-right"></div><div class="whisker-right"></div><div class="whisker-right"></div></div>
+        </div>
+        <div class="cat-paws">
+            <div class="cat-paw"></div>
+            <div class="cat-paw"></div>
+        </div>
+    </div>
+
+    <!-- Bottom Right Cat -->
+    <div class="cat-corner cat-right">
+        <div class="cat-ear l"></div>
+        <div class="cat-ear r"></div>
+        <div class="cat-head">
+            <div class="cat-mask"></div>
+            <div class="cat-eyes">
+                <div class="cat-eye"></div>
+                <div class="cat-eye"></div>
+            </div>
+            <!-- Whiskers Right Cat -->
+            <div class="whiskers whiskers-l"><div class="whisker-left"></div><div class="whisker-left"></div><div class="whisker-left"></div></div>
+            <div class="whiskers whiskers-r"><div class="whisker-right"></div><div class="whisker-right"></div><div class="whisker-right"></div></div>
+        </div>
+        <div class="cat-paws">
+            <div class="cat-paw"></div>
+            <div class="cat-paw"></div>
+        </div>
+    </div>
+
+    <script>
+        function toggleBox() {
+            const box = document.getElementById('giftBox');
+            const pane = document.getElementById('messagePane');
+            const hint = document.getElementById('hintLabel');
+            
+            box.classList.toggle('open');
+            pane.classList.toggle('show');
+            
+            if(box.classList.contains('open')) {
+                hint.textContent = "Yay! Happy Monthsary! 🎉";
+            } else {
+                hint.textContent = "Tap the box for a surprise! ✨";
+            }
+        }
+
+        const container = document.getElementById('heartContainer');
+        const heartCount = 25;
+        const heartTypes = ['❤️', '💖', '💝', '💕', '🌸'];
+
+        for (let i = 0; i < heartCount; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('falling-heart');
+            
+            heart.textContent = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+            heart.style.left = `${Math.random() * 100}vw`;
+            
+            heart.style.animationDuration = `${Math.random() * 4 + 4}s`;
+            heart.style.animationDelay = `${Math.random() * 6}s`;
+            heart.style.fontSize = `${Math.random() * 12 + 16}px`;
+
+            container.appendChild(heart);
+        }
+    </script>
+</body>
+</html>
